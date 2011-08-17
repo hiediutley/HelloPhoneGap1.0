@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <!-- Change this if you want to allow scaling -->
+        <meta name="viewport" content="width=default-width; user-scalable=no" />
+        
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+            <link rel="stylesheet" href="HelloPhoneGap.css" type="text/css"/>
+            <title>HelloPhoneGap</title>
+            <script type="text/javascript" charset="utf-8" src="phonegap-1.0.0.js"></script>
+            <script type="text/javascript" charset="utf-8">
+                
+                function onBodyLoad()
+                {
+                    document.addEventListener("deviceready",onDeviceReady,false);
+                    //alert("here!");
+
+                }
+                
+                /* When this function is called, PhoneGap has been initialized and is ready to roll */
+                function onDeviceReady()
+                {
+                    phoneGapReady.innerHTML = "PhoneGap is Ready";
+                    //alert("here2!");
+
+                }
+                
+                </script>
+            </head>
+    <body onload="onBodyLoad()">
+        
+        <DIV class="phoneGapAPITitle">
+            
+            <TABLE width="100%">
+                <TR>
+                    <TD>
+                        PhoneGap API Examples
+                    </TD>
+                </TR>
+                
+            </TABLE>
+        </DIV>
+
+
+        <DIV class="phoneGapAPI"> 
+            <TABLE width="100%">
+                <TR>
+                    <TD align=left>
+                        <button class="phoneGapAPIIndexButton" onclick="document.location='accelerometer.html';">Accelerometer API</button>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD align=left>
+                        <button class="phoneGapAPIIndexButton" onclick="document.location='camera.html';">Camera API</button>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD align=left>
+                        <button class="phoneGapAPIIndexButton" onclick="document.location='Compass.html';">Compass API</button>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD align=left>
+                        <button class="phoneGapAPIIndexButton" onclick="document.location='contacts.html';">Contacts API</button>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD align=left>
+                        <button class="phoneGapAPIIndexButton" onclick="document.location='device.html';">Device API</button>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD align=left>
+                        <button class="phoneGapAPIIndexButton" onclick="document.location='geolocation.html';">Geolocation API</button>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD align=left>
+                        <button class="phoneGapAPIIndexButton" onclick="document.location='network.html';">Network API</button>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD align=left>
+                        <button class="phoneGapAPIIndexButton" onclick="document.location='notification.html';">Notification API</button>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD align=left>
+                        <button class="phoneGapAPIIndexButton" onclick="document.location='custom.html';">Custom - PLUGIN</button>
+                    </TD>
+                </TR>
+
+                <TR>
+                    <TD align=left>
+                        <button class="phoneGapAPIIndexButton" onclick="document.location='childBrowser.html';">Child Browser - PLUGIN</button>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD align=left>
+                        <button class="phoneGapAPIIndexButton" onclick="document.location='nativeControls.html';">Native Controls - PLUGIN</button>
+                    </TD>
+                </TR>
+            </TABLE>
+            
+         </DIV>
+        
+        <DIV id="phoneGapReady" class="phoneGapReady">waiting for PhoneGap to initialize....</DIV>
+        
+    </body>
+</html>

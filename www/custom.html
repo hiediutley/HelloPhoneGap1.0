@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <!-- Change this if you want to allow scaling -->
+        <meta name="viewport" content="width=default-width; user-scalable=no" />
+        
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+            <link rel="stylesheet" href="HelloPhoneGap.css" type="text/css"/>
+            <title>HelloPhoneGap</title>
+            
+            <script type="text/javascript" charset="utf-8" src="phonegap-1.0.0.js"></script>
+            <script type="text/javascript" charset="utf-8" src="iPod.js"></script>
+            <script type="text/javascript" charset="utf-8" src="ActivityIndicator.js"></script>
+
+            <script type="text/javascript" charset="utf-8">
+                
+                var ipod;
+                var ai;
+                function onBodyLoad()
+                {
+                    document.addEventListener("deviceready",onDeviceReady,false);
+                }
+                
+                /* When this function is called, PhoneGap has been initialized and is ready to roll */
+                function onDeviceReady()
+                {
+                    phoneGapReady.innerHTML = "PhoneGap is Ready";
+                    
+                    ipod = window.plugins.iPod;
+                    ai = window.plugins.activityIndicator;
+                    
+                    
+                }
+                
+                function showMediaPicker()
+                {
+                    try {
+                        ipod.selectSong("onSongSelected", "onSongSelectionFailed");
+                        results.innerHTML = "";
+                        play.hidden = true;
+                    }
+                    catch (err)
+                    {
+                        alert(err);
+                        
+                    }
+                    
+                    
+                }
+                
+                function onSongSelected(songInfo)
+                {                    
+                    results.innerHTML = "<b>SongSelected</b><HR>title="+songInfo.title+"<bR>artist="+songInfo.artist+"<BR>";
+                }
+                
+                function onSongSelectionFailed()
+                {
+                    alert("failed");
+                }
+                
+                
+                function playSelectedSong()
+                {
+                    ipod.playSong();
+
+                    if (play.innerHTML == 'Play Song')
+                    {
+                        play.innerHTML = 'Pause Song';
+                    }
+                    else 
+                    {
+                        play.innerHTML = 'Play Song';
+                    }
+                }
+                
+                function showActivityIndicator(message)
+                {
+                    
+                    ai.show(message);
+                    window.setTimeout('ai.hide()', 2000);                    
+                    
+                }
+                
+                function showActivityIndicatorUpdateMessage(message)
+                {
+                    ai.show(message);
+                    window.setTimeout('updateMessage()', 2000); 
+                    window.setTimeout('ai.hide()', 5000);
+
+                }
+                
+                function updateMessage()
+                {
+                    ai.updateMessage('I am a new message!!!');
+                }
+                </script>
+            </head>
+    <body onload="onBodyLoad()">
+        
+        <DIV class="phoneGapAPITitle">
+            
+            <TABLE width="100%">
+                <TR>
+                    <TD>
+                        iPod Plugin
+                    </TD>
+                    <TD align="right"><a href="index.html">back</a>
+                    </TD>
+                </TR>
+                
+            </TABLE>
+        </DIV>
+        <DIV class="phoneGapAPI"> 
+            
+            <TABLE>
+                <TR>
+                    <TD>
+                        <button onclick="showMediaPicker()">Pick Song</button><button id="play" onclick="playSelectedSong();">Play Song</button><br>
+
+                    </TD>
+                    
+                </TR>
+                <TR>
+                    <TD id="results" >
+                        
+                    </TD>
+                </TR>
+                <TR>
+                    <TD>
+                        <button onclick="showActivityIndicator('I am an activity indicator!')">Show Activity Indicator</button> <br>
+                    </TD>
+                </TR>
+                
+                <TR>
+                    <TD>
+                        <button onclick="showActivityIndicatorUpdateMessage('I am an activity indicator!')">Show Activity Indicator with Message Update</button> <br>
+                    </TD>
+                </TR>
+
+                
+            </TABLE>
+        </DIV>
+        
+        <DIV id="phoneGapReady" class="phoneGapReady">waiting for PhoneGap to initialize....</DIV>
+        
+    </body>
+</html>

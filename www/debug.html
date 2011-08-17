@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <!-- Change this if you want to allow scaling -->
+        <meta name="viewport" content="width=default-width; user-scalable=no" />
+        
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+            <link rel="stylesheet" href="HelloPhoneGap.css" type="text/css"/>
+            <title>HelloPhoneGap</title>
+            
+            <script type="text/javascript" charset="utf-8" src="phonegap-1.0.0.js"></script>            
+            <script type="text/javascript" charset="utf-8" src="PhoneGapShim1.js"></script>
+
+            <script type="text/javascript" charset="utf-8">
+                
+                var pictureSource;   // picture source
+                var destinationType; // sets the format of returned value 
+                
+                
+                function onBodyLoad()
+                {
+                    document.addEventListener("deviceready",onDeviceReady,false);
+                }
+                
+                /* When this function is called, PhoneGap has been initialized and is ready to roll */
+                function onDeviceReady()
+                {
+                    phoneGapReady.innerHTML = "PhoneGap is Ready";
+                    
+                }
+                
+                function getDeviceProperties() {
+                    var element = document.getElementById('deviceProperties');
+                    
+                    element.innerHTML = 'Device Name: '     + device.name     + '<br />' + 
+                    'Device PhoneGap: ' + device.phonegap + '<br />' + 
+                    'Device Platform: ' + device.platform + '<br />' + 
+                    'Device UUID: '     + device.uuid     + '<br />' + 
+                    'Device Version: '  + device.version  + '<br />';
+                }
+                
+                
+                </script>
+            </head>
+    <body onload="onBodyLoad()">
+        
+        <DIV class="phoneGapAPITitle">
+            
+            <TABLE width="100%">
+                <TR>
+                    <TD>
+                        Device API
+                    </TD>
+                    <TD align="right"><a href="index.html">back</a>
+                    </TD>
+                </TR>
+                
+            </TABLE>
+        </DIV>
+        <DIV class="phoneGapAPI"> 
+            
+            <TABLE>
+                <TR>
+                    <TD>
+                        <button onclick="getDeviceProperties();">getDeviceProperties()</button> <br>
+                    </TD>
+                </TR>
+                
+                
+                <TR>
+                    <TD id="deviceProperties" >
+                        
+                    </TD>
+                </TR>
+                
+            </TABLE>
+        </DIV>
+        <DIV class="phoneGapAPITitle">
+            
+            <TABLE width="100%">
+                <TR>
+                    <TD>
+                        Accelerometer API
+                    </TD>
+                    <TD align="right"><a href="index.html">back</a>
+                    </TD>
+                </TR>
+                
+            </TABLE>
+        </DIV>
+        <DIV class="phoneGapAPI"> 
+            
+            <TABLE>
+                <TR>
+                    <TD>
+                        <button class="phoneGapAPIButton" onclick="getCurrentAcceleration();">getCurrentAcceleration()</button>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD id="currentAccelerationResult">
+                        
+                    </TD>
+                </TR>
+                
+                <TR>
+                    <TD>
+                        <button class="phoneGapAPIButton" onclick="startWatch();">startWatch(1000ms)</button>
+                        <button class="phoneGapAPIButton" onclick="stopWatch();">stopWatch()</button>
+                        
+                    </TD>
+                </TR>
+                <TR>
+                    <TD id="watchResult">
+                        
+                    </TD>
+                </TR>
+                
+            </TABLE>
+        </DIV>
+
+        <DIV id="phoneGapReady" class="phoneGapReady">waiting for PhoneGap to initialize....</DIV>
+        
+    </body>
+</html>

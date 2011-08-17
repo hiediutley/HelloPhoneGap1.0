@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <!-- Change this if you want to allow scaling -->
+        <meta name="viewport" content="width=default-width; user-scalable=no" />
+        
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+            <link rel="stylesheet" href="HelloPhoneGap.css" type="text/css"/>
+            <title>HelloPhoneGap</title>
+            
+            <script type="text/javascript" charset="utf-8" src="phonegap-1.0.0.js"></script>
+            <script type="text/javascript" charset="utf-8">
+                
+                var watchID;
+                
+                function onBodyLoad()
+                {
+                    document.addEventListener("deviceready",onDeviceReady,false);
+                }
+                
+                /* When this function is called, PhoneGap has been initialized and is ready to roll */
+                function onDeviceReady()
+                {
+                    phoneGapReady.innerHTML = "PhoneGap is Ready";
+                    
+                }
+                
+                function getHeading()
+                {
+                    try {
+                        navigator.compass.getCurrentHeading(onSuccess, onError);
+                    }
+                    catch (err)
+                    {
+                        alert(err);
+                    }
+
+                }
+                // onSuccess: Get the current heading
+                //
+                function onSuccess(heading) {
+                    
+                    var element = document.getElementById('currentHeading');
+                    element.innerHTML = 'heading: ' + heading + '<BR>';
+                }
+                
+                // onError: Failed to get the heading
+                //
+                function onError() {
+                    alert('onError!');
+                }
+
+                // Start watching the compass
+                //
+                function startWatch() {
+                    
+                    // Update compass every 3 seconds
+                    var options = { frequency: 3000 };
+                    
+                    watchID = navigator.compass.watchHeading(onWatchSuccess, onError, options);
+                    
+                }
+                
+                // Stop watching the compass
+                //
+                function stopWatch() {
+
+                    if (watchID) {
+                        navigator.compass.clearWatch(watchID);
+                        watchID = null;
+                    }
+                    
+                
+                }
+                
+                // onSuccess: Get the current heading
+                //
+                function onWatchSuccess(heading) {
+                    
+                    alert(heading);
+
+                    var element = document.getElementById('watchResult');
+                    element.innerHTML = 'heading: ' + heading + '<BR>';
+                                  
+           
+                    
+                }
+            
+                
+                </script>
+            </head>
+    <body onload="onBodyLoad()">
+        
+        <DIV class="phoneGapAPITitle">
+            
+            <TABLE width="100%">
+                <TR>
+                    <TD>
+                        Compass API
+                    </TD>
+                    <TD align="right"><a href="index.html">back</a>
+                    </TD>
+                </TR>
+                
+            </TABLE>
+        </DIV>
+        <DIV class="phoneGapAPI"> 
+            
+            <TABLE>
+                <TR>
+                    <TD>
+                        <button onclick="getHeading();">getHeading()</button> <br>
+                    </TD>
+                </TR>
+                
+                    
+                <TR>
+                    <TD id="currentHeading" >
+                        
+                    </TD>
+                </TR>
+                <TR>
+                    <TD>
+                        <button class="phoneGapAPIButton" onclick="startWatch();">startWatch(1000ms)</button>
+                        <button class="phoneGapAPIButton" onclick="stopWatch();">stopWatch()</button>
+                        
+                    </TD>
+                </TR>
+                <TR>
+                    <TD id="watchResult">
+                        
+                    </TD>
+                </TR>
+
+            </TABLE>
+        </DIV>
+        
+        <DIV id="phoneGapReady" class="phoneGapReady">waiting for PhoneGap to initialize....</DIV>
+        
+    </body>
+</html>

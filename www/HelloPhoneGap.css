@@ -1,0 +1,65 @@
+
+body {
+    margin: 0px;
+    background-color: #CCCCCC;
+    font-family: arial, helvetica;
+    font-size: 12pt;
+    
+}
+
+h1, .phoneGapAPITitle
+{
+    font-size:16pt;
+    font-weight: bold;
+    color: purple;
+    background-color:white;
+    
+}
+
+.phoneGapReady
+{
+    font-size: 10pt;
+    font-weight: bold;
+    color: white;
+    height: 15px;
+    width: 320px;
+    background-color: purple;
+    vertical-align: middle;
+    padding: 10px;
+}
+
+.phoneGapAPI
+{
+    height: 380px;
+    width: 320px;
+    padding: 10px;
+    overflow: auto;
+
+    
+}
+
+button , .phoneGapAPIButton , .phoneGapAPIIndexButton
+{
+    font-size: 12pt;
+    color: green;
+    background-color: #FFFF99;
+}
+
+.phoneGapAPIIndexButton
+{
+    width: 220px;
+
+}
+.phoneGapAPIIndex
+{
+    position: absolute;
+    top: 10px;
+    left: 250px;
+    
+}
+
+a 
+{
+    font-size: 12pt;
+    color: green;
+}

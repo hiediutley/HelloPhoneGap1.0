@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <!-- Change this if you want to allow scaling -->
+        <meta name="viewport" content="width=default-width; user-scalable=no" />
+        
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+            <link rel="stylesheet" href="HelloPhoneGap.css" type="text/css"/>
+            <title>HelloPhoneGap</title>
+            
+            <script type="text/javascript" charset="utf-8" src="phonegap-1.0.0.js"></script>
+
+            <script type="text/javascript" charset="utf-8">
+                
+                var pictureSource;   // picture source
+                var destinationType; // sets the format of returned value 
+                
+                
+                function onBodyLoad()
+                {
+                    document.addEventListener("deviceready",onDeviceReady,false);
+                }
+                
+                /* When this function is called, PhoneGap has been initialized and is ready to roll */
+                function onDeviceReady()
+                {
+                    phoneGapReady.innerHTML = "PhoneGap is Ready";
+                    
+                }
+                
+                function getLocation() {
+                    try {
+                        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+                    }
+                    catch (err)
+                    {
+                        alert(err);
+                    }
+                }
+                
+                // onSuccess Geolocation
+                //
+                function onSuccess(position) {
+                    var element = document.getElementById('geolocation');
+                    element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+                    'Longitude: '          + position.coords.longitude             + '<br />' +
+                    'Altitude: '           + position.coords.altitude              + '<br />' +
+                    'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                    'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                    'Heading: '            + position.coords.heading               + '<br />' +
+                    'Speed: '              + position.coords.speed                 + '<br />' +
+                    'Timestamp: '          + new Date(position.timestamp)          + '<br />';
+                }
+                
+                // onError Callback receives a PositionError object
+                //
+                function onError(error) {
+                    alert('code: '    + error.code    + '\n' +
+                          'message: ' + error.message + '\n');
+                }
+
+                var watchID;
+                var updates = 0;
+                function startWatch() {
+                    // Update every 3 seconds
+                    var options = { frequency: 1000 };
+                    watchID = navigator.geolocation.watchPosition(onWatchSuccess, onError, options);
+                    alert("here");
+                }
+                
+                // onSuccess Geolocation
+                //
+                function onWatchSuccess(position) {
+                    updates++;
+                    
+                    var element = document.getElementById('watchResult');
+                    element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
+                    'Longitude: ' + position.coords.longitude     + '<br /> updates: '+ updates +
+                    '<hr />';
+                }
+
+                
+                function stopWatch() {
+                    if (watchID != null) {
+                        navigator.geolocation.clearWatch(watchID);
+                        watchID = null;
+                        updates = 0;
+                    }
+                }
+
+                </script>
+            </head>
+    <body onload="onBodyLoad()">
+        
+        <DIV class="phoneGapAPITitle">
+            
+            <TABLE width="100%">
+                <TR>
+                    <TD>
+                        GeoLocation API
+                    </TD>
+                    <TD align="right"><a href="index.html">back</a>
+                    </TD>
+                </TR>
+                
+            </TABLE>
+        </DIV>
+        <DIV class="phoneGapAPI"> 
+            
+            <TABLE>
+                <TR>
+                    <TD>
+                        <button onclick="getLocation();">getLocation()</button> <br>
+                    </TD>
+                </TR>
+                
+                    
+                <TR>
+                    <TD id="geolocation" >
+                        
+                    </TD>
+                </TR>
+                <TR>
+                    <TD>
+                        <button class="phoneGapAPIButton" onclick="startWatch();">startWatch(1000ms)</button>
+                        <button class="phoneGapAPIButton" onclick="stopWatch();">clearWatch()</button>
+                        
+                    </TD>
+                </TR>
+                <TR>
+                    <TD id="watchResult">
+                        
+                    </TD>
+                </TR>
+            </TABLE>
+        </DIV>
+        
+        <DIV id="phoneGapReady" class="phoneGapReady">waiting for PhoneGap to initialize....</DIV>
+        
+    </body>
+</html>
