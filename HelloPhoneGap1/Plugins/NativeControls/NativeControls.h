@@ -13,23 +13,32 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <UIKit/UITabBar.h>
-#import <UIKit/UIToolbar.h>
 #ifdef PHONEGAP_FRAMEWORK
 #import <PhoneGap/PGPlugin.h>
 #else
 #import "PGPlugin.h"
 #endif
+#import "PGNavigationBarController.h"
 
-@interface NativeControls : PGPlugin <UITabBarDelegate, UIActionSheetDelegate> {
+@interface NativeControls : PGPlugin <UITabBarDelegate, UIActionSheetDelegate, PGNavigationBarDelegate> {
 	UITabBar* tabBar;
+    UIView * navBar;
+    
 	NSMutableDictionary* tabBarItems;
-
-	UIToolbar* toolBar;
-	UIBarButtonItem* toolBarTitle;
-	NSMutableArray* toolBarItems;
-
+    
 	CGRect	originalWebViewBounds;
+    CGFloat navBarHeight;
+    CGFloat tabBarHeight;
+    NSString * rightNavBarCallbackId; 
+    NSString * leftNavBarCallbackId; 
+    
+    PGNavigationBarController * navBarController;
+    
 }
+
+@property (nonatomic, retain) NSString * rightNavBarCallbackId;
+@property (nonatomic, retain) NSString * leftNavBarCallbackId;
+@property (nonatomic, retain) PGNavigationBarController * navBarController;
 
 /* Tab Bar methods
  */
@@ -41,14 +50,18 @@
 - (void)updateTabBarItem:(NSArray*)arguments withDict:(NSDictionary*)options;
 - (void)selectTabBarItem:(NSArray*)arguments withDict:(NSDictionary*)options;
 
-/* Tool Bar methods
+/* Nav Bar methods
  */
-- (void)createToolBar:(NSArray*)arguments withDict:(NSDictionary*)options;
-- (void)resetToolBar:(NSArray*)arguments withDict:(NSDictionary*)options;
-- (void)setToolBarTitle:(NSArray*)arguments withDict:(NSDictionary*)options;
-- (void)createToolBarItem:(NSArray*)arguments withDict:(NSDictionary*)options;
-- (void)showToolBar:(NSArray*)arguments withDict:(NSDictionary*)options;
-- (void)hideToolBar:(NSArray*)arguments withDict:(NSDictionary*)options;
+- (void)createNavBar:(NSArray*)arguments withDict:(NSDictionary*)options;
+- (void)setNavBarTitle:(NSMutableArray *)arguments withDict:(NSMutableDictionary *)options;
+- (void)setNavBarLogo:(NSMutableArray *)arguments withDict:(NSMutableDictionary *)options;
+- (void)showNavBar:(NSArray*)arguments withDict:(NSDictionary*)options;
+- (void)hideNavBar:(NSArray*)arguments withDict:(NSDictionary*)options;
+- (void)setupLeftNavButton:(NSArray*)arguments withDict:(NSDictionary*)options;
+- (void)setupRightNavButton:(NSArray*)arguments withDict:(NSDictionary*)options;
+- (void)leftNavButtonTapped;
+- (void)rightNavButtonTapped;
+
 /* ActionSheet
  */
 - (void)createActionSheet:(NSArray*)arguments withDict:(NSDictionary*)options;

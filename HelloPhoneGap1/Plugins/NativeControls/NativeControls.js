@@ -7,7 +7,7 @@
 
 /**
  * This class exposes mobile phone interface controls to JavaScript, such as
- * native tab and tool bars, etc.
+ * native tab and nav bars, etc.
  * @constructor
  */
 function NativeControls() {
@@ -42,6 +42,7 @@ NativeControls.prototype.hideTabBar = function(animate) {
         animate = true;
     PhoneGap.exec("NativeControls.hideTabBar", { animate: animate });
 };
+
 
 /**
  * Create a new tab bar item for use on a previously created tab bar.  Use ::showTabBarItems to show the new item on the tab bar.
@@ -139,22 +140,62 @@ NativeControls.prototype.tabBarItemSelected = function(tag)
 };
 
 /**
- * Create a toolbar.
+ * Create a NavBar.
  */
-NativeControls.prototype.createToolBar = function() 
+NativeControls.prototype.createNavBar = function() 
 {
-    PhoneGap.exec("NativeControls.createToolBar");
+    PhoneGap.exec("NativeControls.createNavBar");
 };
 
 /**
- * Function called when a tab bar item has been selected.
- * @param {String} title the title to set within the toolbar
+ * Create a NavBar.
  */
-NativeControls.prototype.setToolBarTitle = function(title) 
+NativeControls.prototype.setupLeftNavButton = function(title, imageURL, onselect) 
 {
-    PhoneGap.exec("NativeControls.setToolBarTitle", title);
+    PhoneGap.exec("NativeControls.setupLeftNavButton", title, imageURL, onselect);
 };
 
+/**
+ * Create a NavBar.
+ */
+NativeControls.prototype.setupRightNavButton = function(title, imageURL, onselect) 
+{
+    PhoneGap.exec("NativeControls.setupRightNavButton", title, imageURL, onselect);
+};
+
+/**
+ * Function called to set the title of the navBar
+ * @param {String} title the title to set within the NavBar
+ */
+NativeControls.prototype.setNavBarTitle = function(title) 
+{
+    PhoneGap.exec("NativeControls.setNavBarTitle", title);
+};
+
+/**
+ * Function called to set the title of the navBar
+ * @param {String} imageURL full URL to the image 
+ */
+NativeControls.prototype.setNavBarLogo = function(imageURL) 
+{
+    PhoneGap.exec("NativeControls.setNavBarLogo", imageURL);
+};
+
+/**
+ * Show a nav bar.  The nav bar has to be created first.
+ * @param none 
+ */
+NativeControls.prototype.showNavBar = function() {
+    PhoneGap.exec("NativeControls.showNavBar");
+};
+
+/**
+ * Hide a nav bar.  The nav bar has to be created first.
+ */
+NativeControls.prototype.hideNavBar = function() {
+   
+    PhoneGap.exec("NativeControls.hideNavBar");
+};
 
 
 NativeControls.prototype.createActionSheet = function(buttonTitles,actionSheetTitle,cancelButtonIndex,destructiveButtonIndex)
