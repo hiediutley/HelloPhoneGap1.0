@@ -107,7 +107,8 @@
 		[delegate onClose];		
 	}
 	
-    if ([self respondsToSelector:@selector(presentingViewController)]) { //Reference UIViewController.h Line:179 for update to iOS 5 difference - 
+    if ([self respondsToSelector:@selector(presentingViewController)]) { 
+        //Reference UIViewController.h Line:179 for update to iOS 5 difference - 
         [[super presentingViewController] dismissViewControllerAnimated:YES completion:nil];
        		
     } else {

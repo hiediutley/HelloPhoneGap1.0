@@ -3085,7 +3085,7 @@ Geolocation.prototype.watchPosition = function(successCallback, errorCallback, o
 	var that = this;
     var lastPos = that.lastPosition? that.lastPosition.clone() : null;
     
-	return setInterval(function() 
+	var intervalFnction = (function() 
 	{
         var filterFun = function(position) {
             if (lastPos == null || !position.equals(lastPos)) {
@@ -3097,7 +3097,12 @@ Geolocation.prototype.watchPosition = function(successCallback, errorCallback, o
             lastPos = position.clone();
         };
 		that.getCurrentPosition(filterFun, errorCallback, params);
-	}, params.timeout);
+    };
+                           
+    intervalFunction();
+    return setInterval(intervalFunction, params.timeout);
+                           
+                           
 };
 
 

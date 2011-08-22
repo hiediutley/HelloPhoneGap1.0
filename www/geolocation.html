@@ -62,10 +62,10 @@
                 var watchID;
                 var updates = 0;
                 function startWatch() {
-                    // Update every 3 seconds
-                    var options = { frequency: 1000 };
+                    // Update every 1 second
+                    var options = { maximumAge: 1000 };
                     watchID = navigator.geolocation.watchPosition(onWatchSuccess, onError, options);
-                    alert("here");
+                    //alert("here");
                 }
                 
                 // onSuccess Geolocation
