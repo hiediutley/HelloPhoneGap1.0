@@ -32,18 +32,14 @@
 		173CCD1613FB144A00D5914A /* Capture.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 173CCD1513FB144A00D5914A /* Capture.bundle */; };
 		173CCD1813FB144A00D5914A /* PhoneGap.plist in Resources */ = {isa = PBXBuildFile; fileRef = 173CCD1713FB144A00D5914A /* PhoneGap.plist */; };
 		176B028013FBF9450041F86B /* HelloPhoneGapAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 176B027F13FBF9450041F86B /* HelloPhoneGapAppDelegate.m */; };
-		176B029913FBF9570041F86B /* ActivityIndicator.js in Sources */ = {isa = PBXBuildFile; fileRef = 176B028213FBF9570041F86B /* ActivityIndicator.js */; };
 		176B029A13FBF9570041F86B /* ActivityIndicatorCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 176B028413FBF9570041F86B /* ActivityIndicatorCommand.m */; };
 		176B029B13FBF9570041F86B /* DSActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 176B028613FBF9570041F86B /* DSActivityView.m */; };
 		176B029C13FBF9570041F86B /* ChildBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 176B028813FBF9570041F86B /* ChildBrowser.bundle */; };
-		176B029D13FBF9570041F86B /* ChildBrowser.js in Sources */ = {isa = PBXBuildFile; fileRef = 176B028913FBF9570041F86B /* ChildBrowser.js */; };
 		176B029E13FBF9570041F86B /* ChildBrowserCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 176B028B13FBF9570041F86B /* ChildBrowserCommand.m */; };
 		176B029F13FBF9570041F86B /* ChildBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 176B028D13FBF9570041F86B /* ChildBrowserViewController.m */; };
 		176B02A013FBF9570041F86B /* ChildBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 176B028E13FBF9570041F86B /* ChildBrowserViewController.xib */; };
-		176B02A113FBF9570041F86B /* iPod.js in Sources */ = {isa = PBXBuildFile; fileRef = 176B029013FBF9570041F86B /* iPod.js */; };
 		176B02A213FBF9570041F86B /* iPodCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 176B029213FBF9570041F86B /* iPodCommand.m */; };
 		176B02A313FBF9570041F86B /* iPodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 176B029413FBF9570041F86B /* iPodViewController.m */; };
-		176B02A413FBF9570041F86B /* NativeControls.js in Sources */ = {isa = PBXBuildFile; fileRef = 176B029713FBF9570041F86B /* NativeControls.js */; };
 		176B02A513FBF9570041F86B /* NativeControls.m in Sources */ = {isa = PBXBuildFile; fileRef = 176B029813FBF9570041F86B /* NativeControls.m */; };
 		176B02B513FBFBD20041F86B /* PluginCopy.sh in Resources */ = {isa = PBXBuildFile; fileRef = 176B02B413FBFBD20041F86B /* PluginCopy.sh */; };
 		176B02B713FBFF330041F86B /* PhoneGap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 176B02B613FBFF330041F86B /* PhoneGap.framework */; };
@@ -440,16 +436,12 @@
 			files = (
 				173CCCFC13FB144A00D5914A /* main.m in Sources */,
 				176B028013FBF9450041F86B /* HelloPhoneGapAppDelegate.m in Sources */,
-				176B029913FBF9570041F86B /* ActivityIndicator.js in Sources */,
 				176B029A13FBF9570041F86B /* ActivityIndicatorCommand.m in Sources */,
 				176B029B13FBF9570041F86B /* DSActivityView.m in Sources */,
-				176B029D13FBF9570041F86B /* ChildBrowser.js in Sources */,
 				176B029E13FBF9570041F86B /* ChildBrowserCommand.m in Sources */,
 				176B029F13FBF9570041F86B /* ChildBrowserViewController.m in Sources */,
-				176B02A113FBF9570041F86B /* iPod.js in Sources */,
 				176B02A213FBF9570041F86B /* iPodCommand.m in Sources */,
 				176B02A313FBF9570041F86B /* iPodViewController.m in Sources */,
-				176B02A413FBF9570041F86B /* NativeControls.js in Sources */,
 				176B02A513FBF9570041F86B /* NativeControls.m in Sources */,
 				17A59E9913FD613B00D69574 /* PGNavigationBarController.m in Sources */,
 			);
