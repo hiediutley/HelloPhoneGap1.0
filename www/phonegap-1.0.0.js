@@ -344,8 +344,6 @@ PhoneGap.callbackError = function(callbackId, args) {
     if (PhoneGap.callbacks[callbackId]) {
         try {
             if (PhoneGap.callbacks[callbackId].fail) {
-                console.log("HERE!" + args.message);
-
                 PhoneGap.callbacks[callbackId].fail(args.message);
             }
         }
@@ -3085,7 +3083,7 @@ Geolocation.prototype.watchPosition = function(successCallback, errorCallback, o
 	var that = this;
     var lastPos = that.lastPosition? that.lastPosition.clone() : null;
     
-	var intervalFnction = (function() 
+	return setInterval(function() 
 	{
         var filterFun = function(position) {
             if (lastPos == null || !position.equals(lastPos)) {
@@ -3097,12 +3095,7 @@ Geolocation.prototype.watchPosition = function(successCallback, errorCallback, o
             lastPos = position.clone();
         };
 		that.getCurrentPosition(filterFun, errorCallback, params);
-    };
-                           
-    intervalFunction();
-    return setInterval(intervalFunction, params.timeout);
-                           
-                           
+	}, params.timeout);
 };
 
 
@@ -3241,10 +3234,10 @@ Compass.prototype.getCurrentHeading = function(successCallback, errorCallback, o
         this.callbacks.onHeadingChanged.push(successCallback);
         this.callbacks.onError.push(errorCallback);
 		this.start(options);
-    }
+	}
 	else
 	{
-  	    if(options.maximumAge)
+	    if(options.maximumAge)
         {
             var now = new Date().getTime();
             if(now - this.lastHeading.timestamp > options.maximumAge)
