@@ -451,6 +451,9 @@
     {
         NSString  *name = [arguments objectAtIndex:0];
         [navBarController navItem].title = name;
+        
+        // Reset otherwise overriding logo reference
+        [navBarController navItem].titleView = NULL;
     }
 }
 
