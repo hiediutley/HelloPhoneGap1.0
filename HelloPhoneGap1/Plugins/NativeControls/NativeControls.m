@@ -13,6 +13,7 @@
 #import "NativeControls.h"
 
 #import <QuartzCore/QuartzCore.h>
+#import <PhoneGap/PhoneGapDelegate.h>
 
 @implementation NativeControls
 #ifndef __IPHONE_3_0
@@ -449,9 +450,7 @@
     if (navBar)
     {
         NSString  *name = [arguments objectAtIndex:0];
-        [[navBarController titleLabel] setText:name];
-        [[navBarController titleLabel] setHidden:NO];
-        [[navBarController logoImage] setHidden:YES];
+        [navBarController titleItem].title = name;
     }
 }
 
@@ -465,10 +464,7 @@
         NSData * image = [NSData dataWithContentsOfURL:[NSURL URLWithString:logoURL]];
         if (image)
         {
-            [[navBarController logoImage] setImage:[UIImage imageWithData:image]];
-            [[navBarController logoImage] setHidden:NO];
-            [[navBarController titleLabel] setHidden:YES];
-
+            [navBarController titleItem].titleView = [[[UIImageView alloc] initWithImage:[UIImage imageWithData:image]] autorelease];
         }
     }
 

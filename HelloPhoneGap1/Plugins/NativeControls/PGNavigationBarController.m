@@ -10,7 +10,7 @@
 
 @implementation PGNavigationBarController
 @synthesize logoImage;
-@synthesize titleLabel;
+@synthesize titleItem;
 @synthesize leftButton;
 @synthesize rightButton;
 @synthesize delegate;
@@ -40,7 +40,7 @@
 -(void) dealloc
 {
     [logoImage release];
-    [titleLabel release];
+    [titleItem release];
     [leftButton release];
     [rightButton release];
     [delegate release];
