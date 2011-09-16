@@ -450,7 +450,7 @@
     if (navBar)
     {
         NSString  *name = [arguments objectAtIndex:0];
-        [navBarController titleItem].title = name;
+        [navBarController navItem].title = name;
     }
 }
 
@@ -464,7 +464,7 @@
         NSData * image = [NSData dataWithContentsOfURL:[NSURL URLWithString:logoURL]];
         if (image)
         {
-            [navBarController titleItem].titleView = [[[UIImageView alloc] initWithImage:[UIImage imageWithData:image]] autorelease];
+            [navBarController navItem].titleView = [[[UIImageView alloc] initWithImage:[UIImage imageWithData:image]] autorelease];
         }
     }
 
