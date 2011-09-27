@@ -60,19 +60,19 @@
     CGFloat height = originalWebViewBounds.size.height;
     
     
-    if ( !tabBar.hidden && !navBar.hidden)
+    if ( tabBar != nil && !tabBar.hidden && navBar != nil && !navBar.hidden)
     {
         originY = navBarHeight;
         height = height - navBarHeight - tabBarHeight;
         
     }
-    else if ( tabBar.hidden && navBar != nil && !navBar.hidden)
+    else if ( (tabBar == nil || tabBar.hidden) && navBar != nil && !navBar.hidden)
     {
         originY = navBarHeight;
         height = height - navBarHeight;
         
     }
-    else if ( !tabBar.hidden && navBar.hidden)
+    else if ( !tabBar.hidden && (navBar == nil || navBar.hidden))
     {
         height = height - tabBarHeight;
         
