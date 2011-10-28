@@ -13,6 +13,7 @@
 #import "NativeControls.h"
 
 #import <QuartzCore/QuartzCore.h>
+#import <PhoneGap/PhoneGapDelegate.h>
 
 @implementation NativeControls
 #ifndef __IPHONE_3_0
@@ -59,19 +60,19 @@
     CGFloat height = originalWebViewBounds.size.height;
     
     
-    if ( !tabBar.hidden && !navBar.hidden)
+    if ( tabBar != nil && !tabBar.hidden && navBar != nil && !navBar.hidden)
     {
         originY = navBarHeight;
         height = height - navBarHeight - tabBarHeight;
         
     }
-    else if ( tabBar.hidden && navBar != nil && !navBar.hidden)
+    else if ( (tabBar == nil || tabBar.hidden) && navBar != nil && !navBar.hidden)
     {
         originY = navBarHeight;
         height = height - navBarHeight;
         
     }
-    else if ( !tabBar.hidden && navBar.hidden)
+    else if ( !tabBar.hidden && (navBar == nil || navBar.hidden))
     {
         height = height - tabBarHeight;
         
@@ -449,9 +450,10 @@
     if (navBar)
     {
         NSString  *name = [arguments objectAtIndex:0];
-        [[navBarController titleLabel] setText:name];
-        [[navBarController titleLabel] setHidden:NO];
-        [[navBarController logoImage] setHidden:YES];
+        [navBarController navItem].title = name;
+        
+        // Reset otherwise overriding logo reference
+        [navBarController navItem].titleView = NULL;
     }
 }
 
@@ -465,10 +467,7 @@
         NSData * image = [NSData dataWithContentsOfURL:[NSURL URLWithString:logoURL]];
         if (image)
         {
-            [[navBarController logoImage] setImage:[UIImage imageWithData:image]];
-            [[navBarController logoImage] setHidden:NO];
-            [[navBarController titleLabel] setHidden:YES];
-
+            [navBarController navItem].titleView = [[[UIImageView alloc] initWithImage:[UIImage imageWithData:image]] autorelease];
         }
     }
 

@@ -9,8 +9,7 @@
 #import "PGNavigationBarController.h"
 
 @implementation PGNavigationBarController
-@synthesize logoImage;
-@synthesize titleLabel;
+@synthesize navItem;
 @synthesize leftButton;
 @synthesize rightButton;
 @synthesize delegate;
@@ -39,8 +38,7 @@
 
 -(void) dealloc
 {
-    [logoImage release];
-    [titleLabel release];
+    [navItem release];
     [leftButton release];
     [rightButton release];
     [delegate release];
