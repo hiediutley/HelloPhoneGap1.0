@@ -8,7 +8,7 @@
             <link rel="stylesheet" href="HelloPhoneGap.css" type="text/css"/>
             <title>HelloPhoneGap</title>
             
-            <script type="text/javascript" charset="utf-8" src="phonegap-1.0.0.js"></script>
+            <script type="text/javascript" charset="utf-8" src="phonegap-1.1.0.js"></script>
             <script type="text/javascript" charset="utf-8">
                 
                 
@@ -77,7 +77,7 @@
                 
                 // onRemoveSuccess: Get a snapshot of the current contacts
                 //
-                function onRemoveSuccess(contacts) {
+                function onRemoveSuccess() {
                     results.innerHTML = results.innerHTML + " removed!";
                     currentContact = null;
                     del.style.visibility="hidden";
@@ -92,9 +92,10 @@
                 
                 
                 function findContacts() {
-                    // find all contacts with 'test' in any name field
+                    // find all contacts with 'User' in any name field
                     var options = new ContactFindOptions();
                     options.filter="User"; 
+                    options.multiple=true;
                     var fields = ["displayName", "name", "givenName", "familyName"];
                     navigator.contacts.find(fields, onSuccess, onError, options);
                 }
@@ -103,6 +104,7 @@
                 //{"id":1,"name":{"givenName":"Test","formatted":"Test Hiedi","middleName":null,"familyName":"Hiedi","honorificPrefix":null,"honorificSuffix":null}}
                 
                 function onSuccess(contacts) {
+                    alert(contacts.length);
                     contactsSearch.innerHTML = "";
                     for (var i=0; i<contacts.length; i++) {
                         contactsSearch.innerHTML = "Display Name = " + contacts[i].name.formatted + "<BR>" + contactsSearch.innerHTML;

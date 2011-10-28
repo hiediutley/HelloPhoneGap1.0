@@ -194,6 +194,11 @@
 	webView.hidden = NO;
 }
 
+-(BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    
+    return YES;
+}
 
 - (void)webViewDidStartLoad:(UIWebView *)sender {
 	addressLabel.text = @"Loading...";

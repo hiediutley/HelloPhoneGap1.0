@@ -8,7 +8,7 @@
             <link rel="stylesheet" href="HelloPhoneGap.css" type="text/css"/>
             <title>HelloPhoneGap</title>
             
-            <script type="text/javascript" charset="utf-8" src="phonegap-1.0.0.js"></script>
+            <script type="text/javascript" charset="utf-8" src="phonegap-1.1.0.js"></script>
             <script type="text/javascript" charset="utf-8">
                 
                 var watchID;
@@ -46,8 +46,9 @@
                 
                 // onError: Failed to get the heading
                 //
-                function onError() {
-                    alert('onError!');
+                function onError(error) {
+                    alert('code: '    + error.code    + '\n' +
+                          'message: ' + error.message + '\n');
                 }
 
                 // Start watching the compass

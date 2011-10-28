@@ -35,13 +35,13 @@
 {	
 	if(childBrowser == NULL)
 	{
-		childBrowser = [[ ChildBrowserViewController alloc ] initWithScale:FALSE ];
+		childBrowser = [[ ChildBrowserViewController alloc ] initWithScale:FALSE ];        
 		childBrowser.delegate = self;
 	}
 
 	PhoneGapViewController* cont = (PhoneGapViewController*)[ super appViewController ];
 	childBrowser.supportedOrientations = cont.supportedOrientations;
-  	
+
     [cont presentModalViewController:childBrowser animated:YES ];
 
     NSString *url = (NSString*) [arguments objectAtIndex:0];
@@ -64,7 +64,6 @@
 	[childBrowser loadURL:url  ];
 
 }
-
 
 
 -(void) close:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options // args: url

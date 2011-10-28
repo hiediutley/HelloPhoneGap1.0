@@ -17,7 +17,9 @@
 	<key>ShowSplashScreenSpinner</key>
 	<true/>
 	<key>ExternalHosts</key>
-	<array/>
+	<array>
+		<string>www.google.com</string>
+	</array>
 	<key>Plugins</key>
 	<dict>
 		<key>ChildBrowserCommand</key>
