@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #ifdef PHONEGAP_FRAMEWORK
-#import <PhoneGap/PhoneGapDelegate.h>
+#import <PhoneGap/PGPlugin.h>
 #else
-#import "PhoneGapDelegate.h"
+#import "PGPlugin.h"
 #endif
 @interface ActivityIndicatorCommand : PGPlugin {
     

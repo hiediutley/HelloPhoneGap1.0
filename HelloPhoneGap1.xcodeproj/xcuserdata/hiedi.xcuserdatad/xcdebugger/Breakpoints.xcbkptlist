@@ -37,11 +37,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "HelloPhoneGap1/Plugins/NativeControls/NativeControls.m"
-         timestampString = "335383503.812186"
+         timestampString = "342456171.418856"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "839"
-         endingLineNumber = "839"
+         startingLineNumber = "841"
+         endingLineNumber = "841"
          landmarkName = "@implementation NativeControls"
          landmarkType = "3">
       </FileBreakpoint>
@@ -65,11 +65,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "HelloPhoneGap1/Plugins/NativeControls/NativeControls.m"
-         timestampString = "335383503.812186"
+         timestampString = "342456171.418856"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "451"
-         endingLineNumber = "451"
+         startingLineNumber = "453"
+         endingLineNumber = "453"
          landmarkName = "-setNavBarTitle:withDict:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -135,11 +135,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "HelloPhoneGap1/Plugins/NativeControls/NativeControls.m"
-         timestampString = "335383503.812186"
+         timestampString = "342456171.418856"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "449"
-         endingLineNumber = "449"
+         startingLineNumber = "451"
+         endingLineNumber = "451"
          landmarkName = "-setNavBarTitle:withDict:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -149,11 +149,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "HelloPhoneGap1/Plugins/NativeControls/NativeControls.m"
-         timestampString = "335383503.812186"
+         timestampString = "342456171.418856"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "385"
-         endingLineNumber = "385"
+         startingLineNumber = "387"
+         endingLineNumber = "387"
          landmarkName = "-setupRightNavButton:withDict:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -163,7 +163,21 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "HelloPhoneGap1/Plugins/NativeControls/NativeControls.m"
-         timestampString = "335383503.812186"
+         timestampString = "342456171.418856"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "365"
+         endingLineNumber = "365"
+         landmarkName = "-setupLeftNavButton:withDict:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "HelloPhoneGap1/Plugins/NativeControls/NativeControls.m"
+         timestampString = "342456171.418856"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "363"
@@ -177,25 +191,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "HelloPhoneGap1/Plugins/NativeControls/NativeControls.m"
-         timestampString = "335383503.812186"
+         timestampString = "342456171.418856"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "361"
-         endingLineNumber = "361"
-         landmarkName = "-setupLeftNavButton:withDict:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "HelloPhoneGap1/Plugins/NativeControls/NativeControls.m"
-         timestampString = "335383503.812186"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "362"
-         endingLineNumber = "362"
+         startingLineNumber = "364"
+         endingLineNumber = "364"
          landmarkName = "-setupLeftNavButton:withDict:"
          landmarkType = "5">
       </FileBreakpoint>

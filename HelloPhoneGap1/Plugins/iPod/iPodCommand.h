@@ -10,9 +10,9 @@
 #import <MediaPlayer/MediaPlayer.h>
 
 #ifdef PHONEGAP_FRAMEWORK
-#import <PhoneGap/PhoneGapDelegate.h>
+#import <PhoneGap/PGPlugin.h>
 #else
-#import "PhoneGapDelegate.h"
+#import "PGPlugin.h"
 #endif
 
 @interface iPodCommand : PGPlugin <MPMediaPickerControllerDelegate, UITableViewDelegate> {

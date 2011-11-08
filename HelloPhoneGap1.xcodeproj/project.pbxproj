@@ -42,10 +42,10 @@
 		176B02A313FBF9570041F86B /* iPodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 176B029413FBF9570041F86B /* iPodViewController.m */; };
 		176B02A513FBF9570041F86B /* NativeControls.m in Sources */ = {isa = PBXBuildFile; fileRef = 176B029813FBF9570041F86B /* NativeControls.m */; };
 		176B02B513FBFBD20041F86B /* PluginCopy.sh in Resources */ = {isa = PBXBuildFile; fileRef = 176B02B413FBFBD20041F86B /* PluginCopy.sh */; };
-		176B02B713FBFF330041F86B /* PhoneGap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 176B02B613FBFF330041F86B /* PhoneGap.framework */; };
 		176B02B913FC0EFA0041F86B /* www in Resources */ = {isa = PBXBuildFile; fileRef = 176B02B813FC0EFA0041F86B /* www */; };
 		17A3936D13FD51DC000CC3E2 /* PGNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17A3936C13FD51DC000CC3E2 /* PGNavigationBar.xib */; };
 		17A59E9913FD613B00D69574 /* PGNavigationBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A59E9813FD613B00D69574 /* PGNavigationBarController.m */; };
+		17C8DFE31469755600D9FC13 /* PhoneGap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C8DFE11469754100D9FC13 /* PhoneGap.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,11 +100,11 @@
 		176B029713FBF9570041F86B /* NativeControls.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = NativeControls.js; sourceTree = "<group>"; };
 		176B029813FBF9570041F86B /* NativeControls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeControls.m; sourceTree = "<group>"; };
 		176B02B413FBFBD20041F86B /* PluginCopy.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = PluginCopy.sh; sourceTree = "<group>"; };
-		176B02B613FBFF330041F86B /* PhoneGap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneGap.framework; path = "../../../Documents/PhoneGapLib/build/Release-universal/PhoneGap.framework"; sourceTree = "<group>"; };
 		176B02B813FC0EFA0041F86B /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		17A3936C13FD51DC000CC3E2 /* PGNavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PGNavigationBar.xib; sourceTree = "<group>"; };
 		17A59E9713FD613B00D69574 /* PGNavigationBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGNavigationBarController.h; sourceTree = "<group>"; };
 		17A59E9813FD613B00D69574 /* PGNavigationBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGNavigationBarController.m; sourceTree = "<group>"; };
+		17C8DFE11469754100D9FC13 /* PhoneGap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneGap.framework; path = ../../../../Shared/PhoneGap/Frameworks/PhoneGap.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				176B02B713FBFF330041F86B /* PhoneGap.framework in Frameworks */,
+				17C8DFE31469755600D9FC13 /* PhoneGap.framework in Frameworks */,
 				173CCCDC13FB144A00D5914A /* Foundation.framework in Frameworks */,
 				173CCCDE13FB144A00D5914A /* UIKit.framework in Frameworks */,
 				173CCCE013FB144A00D5914A /* CoreGraphics.framework in Frameworks */,
@@ -143,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				176B02B813FC0EFA0041F86B /* www */,
-				176B02B613FBFF330041F86B /* PhoneGap.framework */,
 				176B02B413FBFBD20041F86B /* PluginCopy.sh */,
 				173CCCF513FB144A00D5914A /* HelloPhoneGap1 */,
 				173CCCDA13FB144A00D5914A /* Frameworks */,
@@ -162,6 +161,7 @@
 		173CCCDA13FB144A00D5914A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				17C8DFE11469754100D9FC13 /* PhoneGap.framework */,
 				173CCCDB13FB144A00D5914A /* Foundation.framework */,
 				173CCCDD13FB144A00D5914A /* UIKit.framework */,
 				173CCCDF13FB144A00D5914A /* CoreGraphics.framework */,
@@ -541,7 +541,9 @@
 				GCC_PREFIX_HEADER = "HelloPhoneGap1/HelloPhoneGap1-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "PHONEGAP_FRAMEWORK=YES";
 				INFOPLIST_FILE = "HelloPhoneGap1/HelloPhoneGap1-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -558,7 +560,9 @@
 				GCC_PREFIX_HEADER = "HelloPhoneGap1/HelloPhoneGap1-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "PHONEGAP_FRAMEWORK=YES";
 				INFOPLIST_FILE = "HelloPhoneGap1/HelloPhoneGap1-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

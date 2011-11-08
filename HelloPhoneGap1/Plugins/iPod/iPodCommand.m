@@ -135,5 +135,4 @@
     [failureCallback release];
     [super dealloc];
 }
-
 @end

@@ -349,7 +349,9 @@
         navBarController = [[PGNavigationBarController alloc] init];
         navBar = [navBarController view];
         [navBarController setDelegate:self];
-        [[navBarController view] setFrame:CGRectMake(0, 0, 320, navBarHeight)];
+        
+        NSLog(@"navBar width: %f",[navBar frame].size.width);
+        [[navBarController view] setFrame:CGRectMake(0, 0, originalWebViewBounds.size.width , navBarHeight)];
         [[[self webView] superview] addSubview:[navBarController view]];
         [navBar setHidden:YES];
         
