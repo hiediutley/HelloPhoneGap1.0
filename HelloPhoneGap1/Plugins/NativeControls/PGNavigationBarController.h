@@ -17,14 +17,12 @@
 
     IBOutlet UIBarButtonItem * leftButton;
     IBOutlet UIBarButtonItem * rightButton;
-    IBOutlet UIImageView * logoImage;
-    IBOutlet UILabel * titleLabel;
+    IBOutlet UINavigationItem * navItem;    
     id<PGNavigationBarDelegate>  delegate;
     
 }
 
-@property (nonatomic, retain) UIImageView * logoImage;
-@property (nonatomic, retain) UILabel * titleLabel;
+@property (nonatomic, retain) UINavigationItem * navItem;
 @property (nonatomic, retain) UIBarButtonItem * leftButton;
 @property (nonatomic, retain) UIBarButtonItem * rightButton;
 @property (nonatomic, retain) id<PGNavigationBarDelegate>  delegate;
