@@ -11,7 +11,7 @@
 //  Copyright 2009 Decaf Ninja Software. All rights reserved.
 
 #import "NativeControls.h"
-
+#import "HelloPhoneGapAppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 
 @implementation NativeControls
@@ -461,20 +461,45 @@
 {
     
     NSString * logoURL = [arguments objectAtIndex:0];
+    UIImage * image = nil;
     
     if (logoURL && logoURL != @"")
     {
-        NSData * image = [NSData dataWithContentsOfURL:[NSURL URLWithString:logoURL]];
+    
+        
+        if ([logoURL hasPrefix:@"http://"] || [logoURL hasPrefix:@"https://"])
+        {
+            NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:logoURL]];
+            image = [UIImage imageWithData:data];
+        }
+        else
+        {
+     
+            NSString * path = [HelloPhoneGapAppDelegate pathForResource:logoURL];
+            if (!path)
+            {
+                NSMutableArray *dirs = [NSMutableArray arrayWithArray:[logoURL componentsSeparatedByString:@"/"]];
+                NSString *filename = [dirs lastObject];
+                NSArray *nameParts = [filename componentsSeparatedByString:@"."];
+                path = [[NSBundle mainBundle] pathForResource:[nameParts objectAtIndex:0] ofType:[nameParts lastObject]];
+
+            }
+            if (path)
+            {
+                image = [UIImage imageWithContentsOfFile:path];
+            }
+        }
+        
+    
         if (image)
         {
-            [[navBarController logoImage] setImage:[UIImage imageWithData:image]];
+            [[navBarController logoImage] setImage:image];
             [[navBarController logoImage] setHidden:NO];
             [[navBarController titleLabel] setHidden:YES];
-
+        
         }
     }
 
-    
 }
 
 

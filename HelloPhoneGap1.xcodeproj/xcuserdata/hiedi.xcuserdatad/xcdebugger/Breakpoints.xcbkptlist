@@ -37,11 +37,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "HelloPhoneGap1/Plugins/NativeControls/NativeControls.m"
-         timestampString = "342456171.418856"
+         timestampString = "342558136.283814"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "841"
-         endingLineNumber = "841"
+         startingLineNumber = "866"
+         endingLineNumber = "866"
          landmarkName = "@implementation NativeControls"
          landmarkType = "3">
       </FileBreakpoint>
@@ -253,6 +253,48 @@
          startingLineNumber = "200"
          endingLineNumber = "200"
          landmarkName = "-webView:shouldStartLoadWithRequest:navigationType:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "HelloPhoneGap1/Plugins/NativeControls/NativeControls.m"
+         timestampString = "342557724.759537"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "472"
+         endingLineNumber = "472"
+         landmarkName = "-setNavBarLogo:withDict:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "HelloPhoneGap1/Plugins/NativeControls/NativeControls.m"
+         timestampString = "342558188.744704"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "481"
+         endingLineNumber = "481"
+         landmarkName = "-setNavBarLogo:withDict:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "HelloPhoneGap1/Plugins/NativeControls/NativeControls.m"
+         timestampString = "342558206.058972"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "478"
+         endingLineNumber = "478"
+         landmarkName = "-setNavBarLogo:withDict:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
