@@ -62,6 +62,11 @@
 - (void)leftNavButtonTapped;
 - (void)rightNavButtonTapped;
 
+- (void)hideLeftNavButton:(NSArray*)arguments withDict:(NSDictionary*)options;
+- (void)showRightNavButton:(NSArray*)arguments withDict:(NSDictionary*)options;
+- (void)hideLeftNavButton:(NSArray*)arguments withDict:(NSDictionary*)options;
+- (void)showRightNavButton:(NSArray*)arguments withDict:(NSDictionary*)options;
+
 /* ActionSheet
  */
 - (void)createActionSheet:(NSArray*)arguments withDict:(NSDictionary*)options;

@@ -78,6 +78,8 @@
                     nativeControls.setupRightNavButton("Right","", "onSelectRightNavBarButton");
                     nativeControls.setNavBarTitle("I'm a title!");
                     nativeControls.setNavBarLogo("wwwicon.png");
+                    
+                    
                 }
                 
                 function onSelectLeftNavBarButton()
@@ -102,6 +104,7 @@
                     nativeControls.hideTabBar();
                 }
                 
+            
                 function setUpButton(tab)
                 {
                     var options = new Object();
@@ -139,6 +142,25 @@
                     nativeControls.hideNavBar();
                     
                 }
+                
+                function showLeftButton()
+                {
+                    nativeControls.showLeftNavButton();
+                }
+                
+                function hideLeftButton()
+                {
+                    nativeControls.hideLeftNavButton();
+                }
+                function showRightButton()
+                {
+                    nativeControls.showRightNavButton();
+                }
+                
+                function hideRightButton()
+                {
+                    nativeControls.hideRightNavButton();
+                }
                 </script>
             </head>
     <body onload="onBodyLoad()">
@@ -162,6 +184,18 @@
                 <TR>
                     <TD>
                         <button onclick="showNavBar();">showNavBar()</button><button onclick="hideNavBar();">hideNavBar()</button> <br>
+                    </TD>
+                </TR>
+                <TR>
+                    
+                    <TD>
+                        <button onclick="showLeftButton();">showLeftButton()</button><button onclick="hideLeftButton();">hideLeftButton()</button> <br>
+                    </TD>
+                    
+                </TR>
+                <TR>
+                    <TD>
+                        <button onclick="showRightButton();">showRightButton()</button><button onclick="hideRightButton();">hideRightButton()</button> <br>
                     </TD>
                 </TR>
                 <TR>

@@ -408,6 +408,31 @@
     
 }
 
+- (void)hideLeftNavButton:(NSArray*)arguments withDict:(NSDictionary*)options
+{
+    
+    [[navBarController navItem] setLeftBarButtonItem:nil];
+    
+}
+- (void)showLeftNavButton:(NSArray*)arguments withDict:(NSDictionary*)options
+{
+    
+    [[navBarController navItem] setLeftBarButtonItem:[navBarController leftButton]];
+    
+}
+- (void)hideRightNavButton:(NSArray*)arguments withDict:(NSDictionary*)options
+{
+    
+    [[navBarController navItem] setRightBarButtonItem:nil];
+    
+}
+- (void)showRightNavButton:(NSArray*)arguments withDict:(NSDictionary*)options
+{
+    
+    [[navBarController navItem] setRightBarButtonItem:[navBarController rightButton]];
+    
+}
+
 -(void) leftNavButtonTapped
 {
     NSString * jsCallBack = [NSString stringWithFormat:@"%@();", leftNavBarCallbackId];    

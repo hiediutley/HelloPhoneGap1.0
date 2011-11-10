@@ -155,12 +155,33 @@ NativeControls.prototype.setupLeftNavButton = function(title, imageURL, onselect
     PhoneGap.exec("NativeControls.setupLeftNavButton", title, imageURL, onselect);
 };
 
+NativeControls.prototype.hideLeftNavButton = function() 
+{
+    PhoneGap.exec("NativeControls.hideLeftNavButton");
+};
+
+NativeControls.prototype.showLeftNavButton = function() 
+{
+    PhoneGap.exec("NativeControls.showLeftNavButton");
+};
+
 /**
  * Create a NavBar.
  */
 NativeControls.prototype.setupRightNavButton = function(title, imageURL, onselect) 
 {
     PhoneGap.exec("NativeControls.setupRightNavButton", title, imageURL, onselect);
+};
+
+
+NativeControls.prototype.hideRightNavButton = function() 
+{
+    PhoneGap.exec("NativeControls.hideRightNavButton");
+};
+
+NativeControls.prototype.showRightNavButton = function() 
+{
+    PhoneGap.exec("NativeControls.showRightNavButton");
 };
 
 /**
