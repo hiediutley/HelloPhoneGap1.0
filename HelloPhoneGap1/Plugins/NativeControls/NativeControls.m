@@ -101,6 +101,7 @@
  */
 - (void)createTabBar:(NSArray*)arguments withDict:(NSDictionary*)options
 {
+    NSString  *tabBarBgImage      = [arguments objectAtIndex:0];
     if (!tabBar)
     {
         tabBar = [[UITabBar alloc ]init];
@@ -110,7 +111,8 @@
         [tabBar setAutoresizesSubviews:YES];
         [tabBar setHidden:YES];
         [tabBar setUserInteractionEnabled:YES];
-        [tabBar setOpaque:YES];
+        [tabBar setOpaque:NO];
+        [tabBar setBackgroundColor:[UIColor clearColor]];
         
         
         CGRect tabBounds = CGRectMake(
@@ -121,6 +123,22 @@
                                       );
         
         [tabBar setFrame:tabBounds];
+        
+        /**
+         * if tabBarBgImage is not null and not empty
+         * insert a subView with the same size of tabBar
+         * below the tabBarItem but above the default bg
+         * tint'ing it with pattern/user image
+         */
+        if (tabBarBgImage != nil && (![tabBarBgImage isEqualToString:@""]) ){
+            CGSize tabBarSize = [tabBar frame].size;
+            tabBarBg = [[UIView alloc] initWithFrame:CGRectMake(0,0,tabBarSize.width, tabBarSize.height)];
+            [tabBar insertSubview:tabBarBg atIndex:0];
+            UIColor *c = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:tabBarBgImage]];
+            
+            [tabBarBg setBackgroundColor:c];
+            [c release];
+        }
         
         [[[self webView] superview] addSubview:tabBar];
     }
