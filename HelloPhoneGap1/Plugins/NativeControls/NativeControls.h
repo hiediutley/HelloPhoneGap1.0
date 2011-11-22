@@ -23,6 +23,7 @@
 @interface NativeControls : PGPlugin <UITabBarDelegate, UIActionSheetDelegate, PGNavigationBarDelegate> {
 	UITabBar* tabBar;
     UIView * navBar;
+    UIView * tabBarBg;
     
 	NSMutableDictionary* tabBarItems;
     
