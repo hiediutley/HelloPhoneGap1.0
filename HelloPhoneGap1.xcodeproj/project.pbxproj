@@ -355,7 +355,7 @@
 		173CCCCB13FB144900D5914A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 173CCCCE13FB144900D5914A /* Build configuration list for PBXProject "HelloPhoneGap1" */;
 			compatibilityVersion = "Xcode 3.2";
