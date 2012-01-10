@@ -1,5 +1,5 @@
 /*
- * PhoneGap v1.1.0 is available under *either* the terms of the modified BSD license *or* the
+ * PhoneGap v1.3.0 is available under *either* the terms of the modified BSD license *or* the
  * MIT License (2008). See http://opensource.org/licenses/alphabetical for full text.
  * 
  * Copyright (c) 2005-2010, Nitobi Software Inc.
@@ -1138,6 +1138,8 @@ Camera = function() {
  *	{number} targetWidth - width in pixels to scale image default = 0 (no scaling)
  *  {number} targetHeight - height in pixels to scale image default = 0 (no scaling)
  *  {Camera.EncodingType} - encodingType default = JPEG
+ *  {boolean} correctOrientation - Rotate the image to correct for the orientation of the device during capture (iOS only)
+ *  {boolean} saveToPhotoAlbum - Save the image to the photo album on the device after capture (iOS only)
  */
 /**
  * Format of image that is returned from getPicture.
@@ -1270,7 +1272,6 @@ PhoneGap.addConstructor(function() {
 	}
 });
 };
-
 if (!PhoneGap.hasResource("capture")) {
 	PhoneGap.addResource("capture");
 /**
@@ -1326,11 +1327,10 @@ Capture.prototype.captureImage = function(successCallback, errorCallback, option
 };
 
 /**
- * Launch camera application for taking image(s).
- * 
- * @param {Function} successCB
- * @param {Function} errorCB
- * @param {CaptureImageOptions} options
+ * Casts a PluginResult message property  (array of objects) to an array of MediaFile objects
+ * (used in Objective-C)
+ *
+ * @param {PluginResult} pluginResult
  */
 Capture.prototype._castMediaFile = function(pluginResult) {
     var mediaFiles = [];
@@ -3138,6 +3138,17 @@ FileTransfer.prototype._castUploadResult = function(pluginResult) {
 }
 
 /**
+ * Downloads a file form a given URL and saves it to the specified directory.
+ * @param source {String}          URL of the server to receive the file
+ * @param target {String}         Full path of the file on the device
+ * @param successCallback (Function}  Callback to be invoked when upload has completed
+ * @param errorCallback {Function}    Callback to be invoked upon error
+ */
+FileTransfer.prototype.download = function(source, target, successCallback, errorCallback) {
+	PhoneGap.exec(successCallback, errorCallback, 'com.phonegap.filetransfer', 'download', [source, target]);
+};
+
+/**
  * Options to customize the HTTP request used to upload files.
  * @param fileKey {String}   Name of file request parameter.
  * @param fileName {String}  Filename to be used by the server. Defaults to image.jpg.
@@ -3256,8 +3267,24 @@ Geolocation.prototype.getCurrentPosition = function(successCallback, errorCallba
             params.timeout = options.timeout;
         }
     }
+
+    var successListener = win;
+    var failListener = fail;
+    if (!this.locationRunning)
+    {
+        successListener = function(position)
+        { 
+            win(position);
+            self.stop();
+        };
+        errorListener = function(positionError)
+        { 
+            fail(positionError);
+            self.stop();
+        };
+    }
     
-    this.listener = {"success":win,"fail":fail};
+    this.listener = {"success":successListener,"fail":failListener};
     this.start(params);
 	
 	var onTimeout = function()
@@ -3364,6 +3391,8 @@ Geolocation.prototype.setLocation = function(position)
 Geolocation.prototype.setError = function(error) 
 {
 	var _error = new PositionError(error.code, error.message);
+
+    this.locationRunning = false
 	
     if(this.timeoutTimerId)
     {
@@ -3384,12 +3413,14 @@ Geolocation.prototype.setError = function(error)
 Geolocation.prototype.start = function(positionOptions) 
 {
     PhoneGap.exec(null, null, "com.phonegap.geolocation", "startLocation", [positionOptions]);
+    this.locationRunning = true
 
 };
 
 Geolocation.prototype.stop = function() 
 {
     PhoneGap.exec(null, null, "com.phonegap.geolocation", "stopLocation", []);
+    this.locationRunning = false
 };
 
 
@@ -3720,7 +3751,6 @@ MediaError = function() {
 	this.code = null,
 	this.message = "";
 }
-
 
 MediaError.MEDIA_ERR_ABORTED        = 1;
 MediaError.MEDIA_ERR_NETWORK        = 2;
