@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <!-- Change this if you want to allow scaling -->
+        <meta name="viewport" content="width=default-width; user-scalable=no" />
+        
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+            <link rel="stylesheet" href="HelloPhoneGap.css" type="text/css"/>
+            <title>HelloPhoneGap</title>
+            
+            <script type="text/javascript" charset="utf-8" src="phonegap-1.1.0.js"></script>
+            <script type="text/javascript" charset="utf-8" src="NativeControls.js"></script>
+            <script type="text/javascript" charset="utf-8">
+                
+                var nativeControls;
+                
+                var tabBarItems = { tabs: [
+                                           {"name": "Favorites","link": "Favorites"},
+                                           {"name": "Search","link": "Search"},
+                                           {"name": "More","link": "More"}]};
+                
+                
+                
+                function onBodyLoad()
+                {
+                    document.addEventListener("deviceready",onDeviceReady,false);
+                }
+                
+                /* When this function is called, PhoneGap has been initialized and is ready to roll */
+                function onDeviceReady()
+                {
+                    phoneGapReady.innerHTML = "PhoneGap is Ready";
+                    nativeControls = window.plugins.nativeControls;
+                    setupTabBar();
+                    setupNavBar();
+                }
+                
+                function showCameraOptions()
+                {
+                    var buttons = ["Take Photo", "Choose From Library", "Cancel"];
+                    var delegate = nativeControls.createActionSheet(buttons, null, 2, null);
+                    
+                    delegate.onActionSheetDismissed = function(index)
+                    {
+                        if (index == 0)
+                        {
+                            navigator.camera.getPicture(onPhotoURISuccess, onFail, {quality:5,destinationType:1,sourceType:1,allowEdit:false});
+                        }
+                        else if (index == 1)
+                        {
+                            navigator.camera.getPicture(onPhotoURISuccess, onFail, {quality:5,destinationType:1,sourceType:0,allowEdit:false});
+                        }
+                        
+                    }
+                };
+                
+                function getPhoto(index)
+                {
+                    
+                }
+                function setupTabBar()
+                {
+                    
+                    nativeControls.createTabBar({bgImage:'www/UITintedBottomBarHighlight_red.png'});
+                    var i = 0;
+                    for (i = 0; i < tabBarItems.tabs.length; i++)
+                    {
+                        setUpButton(tabBarItems.tabs[i]);
+                    }
+                    nativeControls.showTabBarItems('More', 'Search', 'Favorites');   
+                    
+                }
+                
+                function setupNavBar()
+                {
+                    nativeControls.createNavBar();
+                    nativeControls.setupLeftNavButton("Left","","onSelectLeftNavBarButton");
+                    nativeControls.setupRightNavButton("Right","", "onSelectRightNavBarButton");
+                    nativeControls.setNavBarTitle("I'm a title!");
+                    nativeControls.setNavBarLogo("wwwicon.png");
+                    
+                    
+                }
+                
+                function onSelectLeftNavBarButton()
+                {
+                    alert("leftNav");
+                }
+                
+                function onSelectRightNavBarButton()
+                {
+                    alert("rightNav");
+                }
+                
+                function showTabBar()
+                {
+                    var options = new Object();
+                    options.position = 'bottom';
+                    nativeControls.showTabBar(options);
+                }
+                
+                function hideTabBar()
+                {
+                    nativeControls.hideTabBar();
+                }
+                
+            
+                function setUpButton(tab)
+                {
+                    var options = new Object();
+                    options.onSelect = function()
+                    {
+                        alert(tab.name);
+                    };
+                    
+                    nativeControls.createTabBarItem(tab.name, tab.name, 'tabButton:'+tab.name, options);
+                    
+                }
+                
+                function onPhotoURISuccess(imageURI) {
+                    
+                    var myImage = document.getElementById('myImage');
+                    myImage.style.display = 'block';
+                    myImage.src = imageURI;
+                }
+                
+                
+                
+                function onFail(message) {
+                    alert('Failed because: ' + message);
+                }
+                
+                
+                function showNavBar()
+                {
+                    nativeControls.showNavBar();
+                    
+                }
+                
+                function hideNavBar()
+                {
+                    nativeControls.hideNavBar();
+                    
+                }
+                
+                function showLeftButton()
+                {
+                    nativeControls.showLeftNavButton();
+                }
+                
+                function hideLeftButton()
+                {
+                    nativeControls.hideLeftNavButton();
+                }
+                function showRightButton()
+                {
+                    nativeControls.showRightNavButton();
+                }
+                
+                function hideRightButton()
+                {
+                    nativeControls.hideRightNavButton();
+                }
+                </script>
+            </head>
+    <body onload="onBodyLoad()">
+        
+        <DIV class="phoneGapAPITitle">
+            
+            <TABLE width="100%">
+                <TR>
+                    <TD>
+                        Native Controls Plugin
+                    </TD>
+                    <TD align="right"><a href="index.html">back</a>
+                    </TD>
+                </TR>
+                
+            </TABLE>
+        </DIV>
+        <DIV class="phoneGapAPI"> 
+            
+            <TABLE>
+                <TR>
+                    <TD>
+                        <button onclick="showNavBar();">showNavBar()</button><button onclick="hideNavBar();">hideNavBar()</button> <br>
+                    </TD>
+                </TR>
+                <TR>
+                    
+                    <TD>
+                        <button onclick="showLeftButton();">showLeftButton()</button><button onclick="hideLeftButton();">hideLeftButton()</button> <br>
+                    </TD>
+                    
+                </TR>
+                <TR>
+                    <TD>
+                        <button onclick="showRightButton();">showRightButton()</button><button onclick="hideRightButton();">hideRightButton()</button> <br>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD>
+                        <button onclick="showCameraOptions();">Show Action Sheet (Display Photo)</button> <br>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD >
+                        <img height=200 width=200 id="myImage" /> 
+                        
+                    </TD>
+                </TR>
+                <TR>
+                    <TD>
+                        <button onclick="showTabBar();">showTabBar()</button><button onclick="hideTabBar();">hideTabBar()</button> <br>
+                    </TD>
+                </TR>
+                
+            </TABLE>
+        </DIV>
+        
+        <DIV id="phoneGapReady" class="phoneGapReady">waiting for PhoneGap to initialize....</DIV>
+        
+    </body>
+</html>

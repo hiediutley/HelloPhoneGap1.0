@@ -18,9 +18,17 @@ function NativeControls() {
 
 /**
  * Create a native tab bar that can have tab buttons added to it which can respond to events.
+ * USAGE:
+ * window.plugins.nativeControls.createTabBar(); // default iOS BG (Black with gloss)
+ * window.plugins.nativeControls.createTabBar({ bgImage: 'www/img/tabBarImage.png' }); //points to some image at www folder
  */
-NativeControls.prototype.createTabBar = function() {
-    PhoneGap.exec("NativeControls.createTabBar");
+NativeControls.prototype.createTabBar = function(options) {
+    if (!options) options = {'bgImage' : ''};
+	if (options && 'bgImage' in options && typeof(options['bgImage']) == 'string' && options['bgImage'] != '') {
+	    PhoneGap.exec("NativeControls.createTabBar", options.bgImage);
+    }else{
+   	    PhoneGap.exec("NativeControls.createTabBar", '');
+    }
 };
 
 /**
